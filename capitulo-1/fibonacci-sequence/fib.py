@@ -1,10 +1,10 @@
-from typing import Dict
-memo: Dict[int,int] = {0: 0,1: 1} # base cases
+from functools import lru_cache
 
-def fib(n: int) -> int:
-    if n not in memo:
-       memo[n] = fib(n-1) + fib(n-2) # memoization
-    return memo[n]
+@lru_cache(maxsize=None)
+def fib(n: int) -> int: # same code in the second task, using just base cases
+    if n <2: # base cases
+        return n
+    return fib(n-1) + fib(n-2) # recursive case
        
 if __name__=="__main__":
     print(fib(5))
