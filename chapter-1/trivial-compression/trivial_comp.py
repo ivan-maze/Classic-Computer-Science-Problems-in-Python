@@ -35,3 +35,13 @@ def decompress(self) -> str:
 
 def _str_(self) -> str: # string representation
     return self.decompress()
+
+if __name__ == "main":
+    from sys import getsizeof
+    original: str = "TAGGGATTAACCGTTATATATATATAGCCATGGATCGATTATATAGGGATTAACCGTTATATATATATAGCCATGGATCGATTATA"*100
+    print("original is {} bytes".format(getsizeof(original)))
+    compressed: CompressedGene = CompressedGene(original) # compact
+    print("compressed is {} bytes".format(getsizeof(compressed.bit_string)))
+    print(compressed) # decompact
+    print("original and decompressed are the same: {}".format(original == compressed.decompressed()));
+
