@@ -43,5 +43,5 @@ if __name__ == "__main__":
     compressed: CompressedGene = CompressedGene(original) # compact
     print("compressed is {} bytes".format(getsizeof(compressed.bit_string)))
     print(compressed) # decompact
-    print("original and decompressed are the same: {}".format(original == compressed.decompressed()));
+    print("original and decompressed are the same: {}".format(original == compressed.decompress()));
 
